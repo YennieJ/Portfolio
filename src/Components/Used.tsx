@@ -15,7 +15,7 @@ const Used = ({ projectName }: IUsed) => {
 
   //기본적으로 사용한 툴
   const basic = {
-    Profile: ["React", "Styled Components", "JavaScript", "TypeScript"],
+    Profile: ["React", "JavaScript", "TypeScript", "HTML", "CSS"],
     Yentube: ["React", "CSS Modules", "JavaScript"],
     Netflix: ["React", "Styled Components", "TypeScript"],
     YenPin: ["React", "Styled Components", "TypeScript"],
