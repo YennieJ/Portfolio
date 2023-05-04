@@ -4,7 +4,7 @@ import React from "react";
 
 const Keyword = () => {
   return (
-    <div className="lg:w-3/5">
+    <div className="px-6 lg:px-0 lg:w-3/5">
       <div className="text-4xl leading-relaxed">About me</div>
       <ul className="ml-4 text-base font-normal list-disc list-inside">
         <li>

@@ -45,12 +45,12 @@ const Used = ({ projectName }: IUsed) => {
   //for css
   const profile = projectName === "Profile";
   const profileUsed =
-    "px-2 py-1 mx-1 mb-4 border-2 rounded-xl text-lg font-bold md:text-3xl";
+    "px-2 py-1 mx-1 border-2 rounded-xl text-lg font-bold md:text-3xl";
   const projectUsed = `inline-block px-2 py-1 mx-1 mb-0.5 border-2 rounded-xl text-sm font-bold text-center md:text-base`;
 
   return (
-    <div className="w-full pb-3  border-b-2 border-gray-400">
-      <div className="mb-1">
+    <div className={!profile ? "w-full pb-3  border-b-2 border-gray-400" : ""}>
+      <div className="text-center w-full mb-1">
         {basicUsed.map((item, i) => (
           <span className={profile ? profileUsed : projectUsed} key={i}>
             {item}

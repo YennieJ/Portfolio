@@ -843,6 +843,9 @@ video {
 .pt-2\.5 {
   padding-top: 0.625rem;
 }
+.pl-6 {
+  padding-left: 1.5rem;
+}
 .text-center {
   text-align: center;
 }
@@ -1037,6 +1040,11 @@ video {
 
   .lg\:justify-around {
     justify-content: space-around;
+  }
+
+  .lg\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media (min-width: 1536px) {
