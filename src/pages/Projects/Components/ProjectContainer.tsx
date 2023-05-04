@@ -1,27 +1,33 @@
 import React from "react";
-import { Link } from "react-scroll";
+
+import LinkContainer from "./LinkContainer";
+import Used from "../../../Components/Used";
 
 interface IProjectContainer {
   projectName: string;
+  children: React.ReactNode;
 }
 
-// 썸네일, 프로젝트 이름
-const ProjectContainer = ({ projectName }: IProjectContainer) => {
+// pages > projects > yentube
+// pages > projects > yenflix
+// pages > projects > yenpin
+
+const ProjectContainer = ({ projectName, children }: IProjectContainer) => {
   return (
-    <Link
-      to={projectName}
-      spy={true}
-      smooth={true}
-      duration={300}
-      className="flex flex-col w-96  my-3.5 py-7 px-5 bg-black rounded-xl cursor-pointer"
+    <div
+      id={projectName}
+      className="w-full pt-24 px-3 text-neutral-800 text-center md:px-7"
     >
-      <img
-        className="mb-5"
-        src={require(`../Images/${projectName}.png`)}
-        alt=""
-      />
-      <div className="text-3xl text-center">{projectName}</div>
-    </Link>
+      <div className="pt-2.5 border-b-2 border-gray-400 rounded-t-xl bg-rose-100">
+        <h2 className="text-5xl leading-loose">{projectName}</h2>
+      </div>
+      <div className="flex flex-col items-center w-full bg-white pb-10  rounded-b-xl ">
+        <LinkContainer projectName={projectName} />
+        <div>사진</div>
+        <Used projectName={projectName} />
+        {children}
+      </div>
+    </div>
   );
 };
 

@@ -24,7 +24,7 @@ const Nav = () => {
 
         <li className="flex flex-row items-center leading-loose 2xl:flex-col">
           <Link
-            to="projects"
+            to="preview"
             spy={true}
             smooth={true}
             duration={100}
@@ -46,6 +46,36 @@ const Nav = () => {
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-rose-700 rounded-full transition ease-in delay-150 duration-300 group-hover:bg-white sm:group-hover:opacity-0  2xl:w-6 2xl:h-6" />
                 <span className="hidden sm:inline opacity-0 transition ease-in delay-150 duration-300 group-hover:opacity-100">
                   Yentube
+                </span>
+              </Link>
+            </li>
+            <li className="group flex relative leading-loose">
+              <Link
+                to="Yenflix"
+                spy={true}
+                smooth={true}
+                duration={100}
+                className="flex items-center w-12 h-full px-3 cursor-pointer transition ease-in delay-150 duration-300 group-hover:bg-rose-700 sm:w-full sm:justify-center"
+                activeClass="bg-rose-700 cursor-default pointer-events-none [&_div]:bg-white sm:[&_div]:opacity-0 [&_span]:opacity-100"
+              >
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-rose-700 rounded-full transition ease-in delay-150 duration-300 group-hover:bg-white sm:group-hover:opacity-0  2xl:w-6 2xl:h-6" />
+                <span className="hidden sm:inline opacity-0 transition ease-in delay-150 duration-300 group-hover:opacity-100">
+                  Yenflix
+                </span>
+              </Link>
+            </li>
+            <li className="group flex relative leading-loose">
+              <Link
+                to="YenPin"
+                spy={true}
+                smooth={true}
+                duration={100}
+                className="flex items-center w-12 h-full px-3 cursor-pointer transition ease-in delay-150 duration-300 group-hover:bg-rose-700 sm:w-full sm:justify-center"
+                activeClass="bg-rose-700 cursor-default pointer-events-none [&_div]:bg-white sm:[&_div]:opacity-0 [&_span]:opacity-100"
+              >
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-rose-700 rounded-full transition ease-in delay-150 duration-300 group-hover:bg-white sm:group-hover:opacity-0  2xl:w-6 2xl:h-6" />
+                <span className="hidden sm:inline opacity-0 transition ease-in delay-150 duration-300 group-hover:opacity-100">
+                  YenPin
                 </span>
               </Link>
             </li>

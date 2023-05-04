@@ -24,7 +24,6 @@ const Profile = () => {
           <Contect setEmailOpen={setEmailOpen} />
           <Keyword />
         </div>
-
         <Used projectName="Profile" />
       </div>
       <EmailForm emailOpen={emailOpen} setEmailOpen={setEmailOpen} />

@@ -828,6 +828,9 @@ video {
 .pb-10 {
   padding-bottom: 2.5rem;
 }
+.pb-20 {
+  padding-bottom: 5rem;
+}
 .pb-3 {
   padding-bottom: 0.75rem;
 }
@@ -843,8 +846,8 @@ video {
 .pt-2\.5 {
   padding-top: 0.625rem;
 }
-.pl-6 {
-  padding-left: 1.5rem;
+.pt-24 {
+  padding-top: 6rem;
 }
 .text-center {
   text-align: center;
@@ -1046,6 +1049,10 @@ video {
     padding-left: 0px;
     padding-right: 0px;
   }
+
+  .lg\:text-left {
+    text-align: left;
+  }
 }
 @media (min-width: 1536px) {
 
@@ -1087,11 +1094,6 @@ video {
 
   .\32xl\:items-center {
     align-items: center;
-  }
-
-  .\32xl\:py-10 {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
   }
 
   .\32xl\:py-5 {

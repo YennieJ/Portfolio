@@ -5,7 +5,9 @@ interface IUsed {
 }
 
 // pages > profile
-// pages > yentube
+// pages > portfolio > yentube
+// pages > portfolio > yenflix
+// pages > portfolio > yenpin
 
 // 어떤 툴을 사용했는지 보여준다.
 const Used = ({ projectName }: IUsed) => {

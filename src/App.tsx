@@ -2,9 +2,8 @@ import React from "react";
 
 import Nav from "./Components/Nav";
 import Profile from "./pages/Profile/Profile";
+import Preview from "./pages/Preview/Preview";
 import Projects from "./pages/Projects/Projects";
-
-import Yentube from "./pages/Yentube/Yentube";
 
 function App() {
   return (
@@ -12,8 +11,8 @@ function App() {
       <Nav />
       <article className="w-full h-full 2xl:w-4/5">
         <Profile />
+        <Preview />
         <Projects />
-        <Yentube />
       </article>
     </div>
   );
