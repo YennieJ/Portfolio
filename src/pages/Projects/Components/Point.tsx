@@ -1,5 +1,7 @@
 import React from "react";
 
+//pages > yentube
+
 interface IPoint {
   projectName: string;
 }
@@ -22,7 +24,7 @@ const Point = ({ projectName }: IPoint) => {
     <div>
       {basicUsed.map((item, i) => (
         <span
-          className="inline-block px-2 py-0.5 mr-1 border rounded-lg bg-white text-black text-sm font-normal"
+          className="px-2 py-1.5 mx-1 mb-4 border rounded-xl bg-black text-white text-base font-bold text-center md:text-xl"
           key={i}
         >
           {item}

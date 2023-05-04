@@ -16,7 +16,7 @@ const Nav = () => {
             smooth={true}
             duration={300}
             className="w-full px-6 cursor-pointer hover:bg-stone-800"
-            activeClass="bg-stone-800 cursor-default"
+            activeClass="bg-stone-800 cursor-default pointer-events-none"
           >
             Profile
           </Link>
@@ -29,23 +29,23 @@ const Nav = () => {
             smooth={true}
             duration={100}
             className="w-full px-4 cursor-pointer hover:bg-green-950"
-            activeClass="bg-green-950 cursor-default"
+            activeClass="bg-green-950 cursor-default pointer-events-none"
           >
             Projects
           </Link>
           <ul className="flex h-full text-2xl 2xl:flex-col 2xl:w-full 2xl:text-4xl">
-            <li className="group flex relative leading-loose cursor-pointer">
+            <li className="group flex relative leading-loose">
               <Link
-                to="Portfolio"
+                to="Yentube"
                 spy={true}
                 smooth={true}
                 duration={100}
-                className="flex items-center w-12 h-full px-3 transition ease-in delay-150 duration-300 group-hover:bg-rose-700 sm:w-full sm:justify-center"
-                activeClass="bg-rose-700 cursor-default [&_div]:bg-white sm:[&_div]:opacity-0 [&_span]:opacity-100"
+                className="flex items-center w-12 h-full px-3 cursor-pointer transition ease-in delay-150 duration-300 group-hover:bg-rose-700 sm:w-full sm:justify-center"
+                activeClass="bg-rose-700 cursor-default pointer-events-none [&_div]:bg-white sm:[&_div]:opacity-0 [&_span]:opacity-100"
               >
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-rose-700 rounded-full transition ease-in delay-150 duration-300 group-hover:bg-white sm:group-hover:opacity-0  2xl:w-6 2xl:h-6" />
                 <span className="hidden sm:inline opacity-0 transition ease-in delay-150 duration-300 group-hover:opacity-100">
-                  Portfolio
+                  Yentube
                 </span>
               </Link>
             </li>

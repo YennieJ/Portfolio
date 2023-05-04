@@ -6,8 +6,8 @@ interface ILinkContainer {
   projectName: string;
   CD?: boolean;
 }
-// pages > project
-// pages > portfolio
+
+// pages > yentube
 
 // 프로젝트 이름에 따라 외부 링크 연결
 
@@ -32,25 +32,24 @@ const LinkContainer = ({ CD, projectName }: ILinkContainer) => {
     window.open(url);
   };
 
-  // for css
-  const gitHubClassName =
-    "float-right text-4xl cursor-pointer hover:fill-green-800 ";
-  const portfolioClassName = "mb-5 text-6xl cursor-pointer hover:fill-black";
-
   return (
-    <div>
-      <AiFillGithub
-        className={
-          projectName === "Portfolio" ? portfolioClassName : gitHubClassName
-        }
-        onClick={() => onClick("git")}
-      />
+    <div className="flex items-cneter my-4">
       {CD && (
-        <AiOutlineLink
-          className={`${gitHubClassName} mr-3`}
+        <div
+          className="mr-2 cursor-pointer hover:text-rose-700  "
           onClick={() => onClick("site")}
-        />
+        >
+          <span>Site</span>
+          <AiOutlineLink className="inline-block text-6xl" />
+        </div>
       )}
+      <div
+        className="cursor-pointer hover:text-rose-700  "
+        onClick={() => onClick("git")}
+      >
+        <AiFillGithub className="inline-block mr-2 text-6xl " />
+        <span>README</span>
+      </div>
     </div>
   );
 };

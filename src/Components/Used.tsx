@@ -5,27 +5,23 @@ interface IUsed {
 }
 
 // pages > profile
-// pages > projects
-// pages > portfolio
+// pages > yentube
 
 // 어떤 툴을 사용했는지 보여준다.
 const Used = ({ projectName }: IUsed) => {
-  //for css
-  const others = projectName === "Portfolio" || projectName === "Profile";
-
   //기본적으로 사용한 툴
   const basic = {
     Profile: ["React", "JavaScript", "TypeScript", "HTML", "CSS"],
     Yentube: ["React", "CSS Modules", "JavaScript"],
-    Netflix: ["React", "Styled Components", "TypeScript"],
+    Yenflix: ["React", "Styled Components", "TypeScript"],
     YenPin: ["React", "Styled Components", "TypeScript"],
-    Portfolio: ["React", "Tailwindcss", "TypeScript", "Github CI/CD"],
+    Portfolio: ["React", "Tailwindcss", "TypeScript", "Github Deploy"],
   };
 
   // 그 외 추가로 사용한 툴
   const extend = {
     Yentube: ["Axios", "React Query", "React Hook Form", "Recoil", "Netlify"],
-    Netflix: ["Axios", "React Router", "React Query", "React Hook Form"],
+    Yenflix: ["Axios", "React Router", "React Query", "React Hook Form"],
     YenPin: [
       "Axios",
       "React Router",
@@ -46,28 +42,28 @@ const Used = ({ projectName }: IUsed) => {
     keys === projectName && values.map((value) => extendUsed.push(value));
   }
 
-  // for css
-  const projectUsed = `inline-block px-1.5 py-0.5 mr-1 border rounded-lg text-xs font-normal`;
-  const othersUsed =
-    "flex items-center px-2 py-1 mx-1 mb-4 border-2 rounded-xl text-lg font-bold md:text-3xl";
+  //for css
+  const profile = projectName === "Profile";
+  const profileUsed =
+    "px-2 py-1 mx-1 mb-4 border-2 rounded-xl text-lg font-bold md:text-3xl";
+  const projectUsed = `inline-block px-2 py-1 mx-1 mb-0.5 border-2 rounded-xl text-sm font-bold text-center md:text-base`;
 
   return (
-    <div className={`${others && "flex justify-center mb-4"}   `}>
-      {basicUsed.map((item, i) => (
-        <span className={others ? othersUsed : projectUsed} key={i}>
-          {item}
-        </span>
-      ))}
-      {!others && (
-        <>
-          <br />
-          {extendUsed.map((item, i) => (
-            <span className={projectUsed} key={i}>
-              {item}
-            </span>
-          ))}
-        </>
-      )}
+    <div className="w-full pb-3  border-b-2 border-gray-400">
+      <div className="mb-1">
+        {basicUsed.map((item, i) => (
+          <span className={profile ? profileUsed : projectUsed} key={i}>
+            {item}
+          </span>
+        ))}
+      </div>
+      <div className="mb-3">
+        {extendUsed.map((item, i) => (
+          <span className={projectUsed} key={i}>
+            {item}
+          </span>
+        ))}
+      </div>
     </div>
   );
 };
