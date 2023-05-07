@@ -1,61 +1,24 @@
-# YenPin
-
-> 개선 점 : 댓글 DB 구축
-
----
+# Portfolio
 
 ![react](https://img.shields.io/badge/-React-000000?logo=react&logoColor=61DAFB&style=for-the-badge)
-![styledcomponents](https://img.shields.io/badge/-styledcomponents-000000?logo=styledcomponents&logoColor=DB7093&style=for-the-badge)
+![tailwindcss](https://img.shields.io/badge/-tailwindcss-000000?logo=tailwindcss&logoColor=06B6D4&style=for-the-badge)
 ![typescript](https://img.shields.io/badge/-typescript-000000?logo=typescript&logoColor=3178C6&style=for-the-badge)
 
-![axios](https://img.shields.io/badge/-axios-000000?logo=axios&logoColor=white&style=for-the-badge)
-![reactrouter](https://img.shields.io/badge/-reactrouter-000000?logo=reactrouter&logoColor=FF4154&style=for-the-badge)
-![reactquery](https://img.shields.io/badge/-reactquery-000000?logo=reactquery&logoColor=FF4154&style=for-the-badge)
-![reacthookform](https://img.shields.io/badge/-reacthookform-000000?logo=reacthookform&logoColor=EC5990&style=for-the-badge)
-![recoil](https://img.shields.io/badge/recoil-000000?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FscXVlXzEiIGRhdGEtbmFtZT0iQ2FscXVlIDEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDI1NS4yMSA2MjMuOTEiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMDA3YWY0fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0ibTc0LjYyIDI3Ny40NiAxLjI0LS4xMyAzNC43OC0zLjI4LTUzLjQ3LTU4LjY2QTk2LjQ3IDk2LjQ3IDAgMCAxIDMyIDE1MC4zSDNhMTI1LjMgMTI1LjMgMCAwIDAgMzIuOCA4NC41N1pNMTc3LjEzIDM0N2wtMzYgMy40IDUzLjMyIDU4LjUxQTk2LjQxIDk2LjQxIDAgMCAxIDIxOS42MyA0NzRoMjguOTJhMTI1LjI4IDEyNS4yOCAwIDAgMC0zMi43Ni04NC41N1oiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yNTMuNjkgMjMxLjY4Yy02LjMzLTMxLjMtMzAuODktNTQuMDktNjIuNTctNTguMDdsLTYuMzUtLjc5YTQ5LjYxIDQ5LjYxIDAgMCAxLTQzLjM1LTQ5LjEzdi0yMGE1Mi43NSA1Mi43NSAwIDEgMC0yOC45MS0uMzZ2MjAuMzhhNzguNTYgNzguNTYgMCAwIDAgNjguNjUgNzcuODJsNi4zNi44YzIzLjI0IDIuOTIgMzQuNzggMjAgMzcuODMgMzUuMXMtLjkzIDM1LjMyLTIxLjIyIDQ3YTczLjgxIDczLjgxIDAgMCAxLTMwLjA2IDkuNjJsLTk1LjY2IDlhMTAyLjQ1IDEwMi40NSAwIDAgMC00MS44IDEzLjM4QzkgMzMyLjQ1LTQuODEgMzYzIDEuNTIgMzk0LjI5czMwLjg5IDU0LjA4IDYyLjU3IDU4LjA2bDYuMzUuOGE0OS42IDQ5LjYgMCAwIDEgNDMuMzUgNDkuMTJ2MThhNTIuNzUgNTIuNzUgMCAxIDAgMjguOTEuMjZ2LTE4LjI2YTc4LjU1IDc4LjU1IDAgMCAwLTY4LjY1LTc3LjgxbC02LjM2LS44Yy0yMy4yNC0yLjkyLTM0Ljc4LTIwLjA1LTM3LjgzLTM1LjExcy45My0zNS4zMiAyMS4yMi00N2E3My42OCA3My42OCAwIDAgMSAzMC4wNi05LjYzbDk1LjY2LTlhMTAyLjQ1IDEwMi40NSAwIDAgMCA0MS44LTEzLjM4YzI3LjY1LTE2LjAyIDQxLjQtNDYuNTQgMzUuMDktNzcuODZaIi8+PC9zdmc+)
-
-![firebase](https://img.shields.io/badge/-firebase-ffffff?logo=firebase&logoColor=FFCA28&style=for-the-badge)
-![likes](https://img.shields.io/badge/-좋아요-ffffff?&style=for-the-badge)
-![Dark Mode](https://img.shields.io/badge/-DarkMode-ffffff?&style=for-the-badge)
-![Pagination](https://img.shields.io/badge/-Pagination-ffffff?&style=for-the-badge)
+![component](https://img.shields.io/badge/-재사용컴포넌트-ffffff?&style=for-the-badge)
+![scroll](https://img.shields.io/badge/-ReactScroll-ffffff?&style=for-the-badge)
+![github](https://img.shields.io/badge/-github-ffffff?logo=github&logoColor=000000&style=for-the-badge)
 
 ---
 
-## Firebase
+## 재사용 컴포넌트
 
-> 인증 서비스, 데이터 베이스, 스토리지 등 서버 구축을 도와준다.
+> 진행했던 프로젝트를 바탕으로 최소한의 중복을 생각하며 코드 짜는데 집중했다.
 
-### React Query with Mutation
+### src > pages > preview > components > PreviewContainer.tsx
 
-hooks > useQueryData.tsx
-
-> mutation? insert, update, delete가 실행 되었을 때 api를 다시 불러오는 trigger 역할
+사진
 
 ```ts
-import { useQuery, useQueryClient, useMutation } from "react-query";
-
-// 기존 React Query 형식
-export const useCardsQueryData = () => {
-  return useQuery<CardType[]>("고유네임", "card_repository 함수 중 택 1");
-};
-
-// Mutation 형식
-export const useMutationData = () => {
-  const queryClient = useQueryClient();
-  return useMutation((newCard: CardType) => "card_repository 함수 중 택 1", {
-    onSuccess: () => {
-      queryClient.invalidateQueries(["다시 실행해야하는 고유 네임"]);
-    },
-  });
-};
-
-// 사용 할때
-  const { mutate } = useMutationData();
-
-  const onSubmit = () => {
-        mutate();
-    }
-  };
 
 ```
 

@@ -31,7 +31,7 @@ const LinkContainer = ({ projectName }: ILinkContainer) => {
   };
 
   return (
-    <div className="flex items-cneter my-4">
+    <div className="flex justify-center my-4 ">
       {projectName === "Yentube" && (
         <div
           className="mr-2 cursor-pointer hover:text-rose-700  "

@@ -1,6 +1,5 @@
 import React from "react";
-import LinkContainer from "../LinkContainer";
-import Used from "../../../../Components/Used";
+
 import ProjectContainer from "../ProjectContainer";
 
 const Yentube = () => {

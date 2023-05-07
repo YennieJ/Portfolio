@@ -11,6 +11,7 @@ const Preview = () => {
       <PreviewContainer projectName="Yentube"></PreviewContainer>
       <PreviewContainer projectName="Yenflix"></PreviewContainer>
       <PreviewContainer projectName="YenPin"></PreviewContainer>
+      <PreviewContainer projectName="Portfolio"></PreviewContainer>
     </div>
   );
 };

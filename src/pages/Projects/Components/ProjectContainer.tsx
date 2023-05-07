@@ -2,6 +2,7 @@ import React from "react";
 
 import LinkContainer from "./LinkContainer";
 import Used from "../../../Components/Used";
+import Slider from "./Slider";
 
 interface IProjectContainer {
   projectName: string;
@@ -21,9 +22,9 @@ const ProjectContainer = ({ projectName, children }: IProjectContainer) => {
       <div className="pt-2.5 border-b-2 border-gray-400 rounded-t-xl bg-rose-100">
         <h2 className="text-5xl leading-loose">{projectName}</h2>
       </div>
-      <div className="flex flex-col items-center w-full bg-white pb-10  rounded-b-xl ">
+      <div className="flex flex-col w-full bg-white pb-10 rounded-b-xl ">
         <LinkContainer projectName={projectName} />
-        <div>사진</div>
+        <Slider projectName={projectName} />
         <Used projectName={projectName} />
         {children}
       </div>

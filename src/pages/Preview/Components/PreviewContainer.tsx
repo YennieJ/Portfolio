@@ -18,7 +18,7 @@ const PreviewContainer = ({ projectName }: IPreviewContainer) => {
       <img
         className="mb-5"
         src={require(`../Images/${projectName}.png`)}
-        alt=""
+        alt={projectName}
       />
       <div className="text-3xl text-center">{projectName}</div>
     </Link>

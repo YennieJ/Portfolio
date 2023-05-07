@@ -17,7 +17,7 @@ const Used = ({ projectName }: IUsed) => {
     Yentube: ["React", "CSS Modules", "JavaScript"],
     Yenflix: ["React", "Styled Components", "TypeScript"],
     YenPin: ["React", "Styled Components", "TypeScript"],
-    Portfolio: ["React", "Tailwindcss", "TypeScript", "Github Deploy"],
+    Portfolio: ["React", "Tailwindcss", "TypeScript"],
   };
 
   // 그 외 추가로 사용한 툴
@@ -31,6 +31,7 @@ const Used = ({ projectName }: IUsed) => {
       "React Hook Form",
       "Recoil",
     ],
+    Portfolio: ["무한 슬라이드", "React-scroll", "EmailJS", "Github Deploy"],
   };
 
   //props 이름과 프로젝트 이름이 같은 배열을 찾아 사용한 툴을 맵핑하여 보여준다.
