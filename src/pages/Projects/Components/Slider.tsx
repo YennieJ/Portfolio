@@ -20,6 +20,8 @@ import yenpin4 from "./YenPin/imgs/yenpin4.png";
 import yenpin5 from "./YenPin/imgs/yenpin5.png";
 import yenpin6 from "./YenPin/imgs/yenpin6.png";
 
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+
 interface ISlider {
   projectName: string;
 }
@@ -60,13 +62,13 @@ const Slider = ({ projectName }: ISlider) => {
         if (slideRef.current) {
           slideRef.current.style.transition = "";
         }
-      }, 1000);
+      }, 200);
 
       setTimeout(() => {
         if (slideRef.current) {
-          slideRef.current.style.transition = "all 500ms ease-in-out";
+          slideRef.current.style.transition = "all 300ms ease-in-out";
         }
-      }, 1500);
+      }, 300);
     }
 
     if (slideIndex === 0) {
@@ -75,19 +77,21 @@ const Slider = ({ projectName }: ISlider) => {
         if (slideRef.current) {
           slideRef.current.style.transition = "";
         }
-      }, 1000);
+      }, 200);
 
       setTimeout(() => {
         if (slideRef.current) {
-          slideRef.current.style.transition = "all 500ms ease-in-out";
+          slideRef.current.style.transition = "all 300ms ease-in-out";
         }
-      }, 1500);
+      }, 300);
     }
   }, [slideArr.length, slideIndex]);
 
   const slideHandler = (direction: number) => {
     setSlideIndex((slideIndex) => slideIndex + direction);
   };
+
+  const dotArray = new Array(SLIDE_NUM).fill(0);
 
   return (
     <div className="overflow-hidden text-black">
@@ -96,8 +100,7 @@ const Slider = ({ projectName }: ISlider) => {
         ref={slideRef}
         style={{
           width: `${100 * COPIED_NUM}%`,
-
-          transition: "all 500ms ease-in-out",
+          transition: "all 300ms ease-in-out",
           transform: `translateX(${
             -1 * ((100 / copiedArr.length) * slideIndex)
           }%)`,
@@ -109,9 +112,29 @@ const Slider = ({ projectName }: ISlider) => {
           </div>
         ))}
       </div>
+      <div className="flex justify-center items-center py-5">
+        <AiOutlineLeft
+          size="30"
+          className="mr-3 cursor-pointer"
+          onClick={() => slideHandler(-1)}
+        />
 
-      <button onClick={() => slideHandler(-1)}>뒤로</button>
-      <button onClick={() => slideHandler(1)}>앞으로</button>
+        {dotArray.map((v, i) => (
+          <div
+            key={i}
+            className={
+              i + 1 === slideIndex
+                ? "w-6 h-6 mx-[2px] border-2 rounded-full bg-stone-700"
+                : " w-5 h-5 mx-[1px] border-2 rounded-full"
+            }
+          />
+        ))}
+        <AiOutlineRight
+          size="30"
+          className="ml-3 cursor-pointer"
+          onClick={() => slideHandler(1)}
+        />
+      </div>
     </div>
   );
 };
