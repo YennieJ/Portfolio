@@ -1,10 +1,9 @@
 import React from "react";
 
-import Nav from "./Components/Nav";
+import Nav from "./Components/Nav/Nav";
 import Profile from "./pages/Profile/Profile";
 import Preview from "./pages/Preview/Preview";
 import Projects from "./pages/Projects/Projects";
-import Slider from "./pages/Projects/Components/Slider";
 
 function App() {
   return (

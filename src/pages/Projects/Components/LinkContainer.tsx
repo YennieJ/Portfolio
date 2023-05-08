@@ -24,7 +24,10 @@ const LinkContainer = ({ projectName }: ILinkContainer) => {
           ? "https://github.com/YennieJ/Yentube"
           : "https://yentube.store/")) ||
       (netflix && "https://github.com/YennieJ/Yenflix") ||
-      (yenpin && "https://github.com/YennieJ/YenPin") ||
+      (yenpin &&
+        (urlName === "git"
+          ? "https://github.com/YennieJ/YenPin"
+          : "https://yentube.store/")) ||
       (portfolio && "https://github.com/YennieJ/portfolio");
 
     window.open(url);
@@ -32,7 +35,7 @@ const LinkContainer = ({ projectName }: ILinkContainer) => {
 
   return (
     <div className="flex justify-center my-4 ">
-      {projectName === "Yentube" && (
+      {(projectName === "Yentube" || projectName === "YenPin") && (
         <div
           className="mr-2 cursor-pointer hover:text-rose-700  "
           onClick={() => onClick("site")}
