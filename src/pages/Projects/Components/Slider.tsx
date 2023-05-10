@@ -1,24 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 
-import yentube1 from "./Yentube/imgs/yentube1.png";
-import yentube2 from "./Yentube/imgs/yentube2.png";
-import yentube3 from "./Yentube/imgs/yentube3.png";
-import yentube4 from "./Yentube/imgs/yentube4.png";
-import yentube5 from "./Yentube/imgs/yentube5.png";
-
-import yenflix1 from "./Yenflix/imgs/yenflix1.png";
-import yenflix2 from "./Yenflix/imgs/yenflix2.png";
-import yenflix3 from "./Yenflix/imgs/yenflix3.png";
-import yenflix4 from "./Yenflix/imgs/yenflix4.png";
-import yenflix5 from "./Yenflix/imgs/yenflix5.png";
-import yenflix6 from "./Yenflix/imgs/yenflix6.png";
-
-import yenpin1 from "./YenPin/imgs/yenpin1.png";
-import yenpin2 from "./YenPin/imgs/yenpin2.png";
-import yenpin3 from "./YenPin/imgs/yenpin3.png";
-import yenpin4 from "./YenPin/imgs/yenpin4.png";
-import yenpin5 from "./YenPin/imgs/yenpin5.png";
-import yenpin6 from "./YenPin/imgs/yenpin6.png";
+import YenPinImg from "./YenPin/YenPinImg";
+import YentubeImg from "./Yentube/YentubeImg";
+import YenflixImg from "./Yenflix/YenflixImg";
 
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
@@ -34,11 +18,11 @@ const Slider = ({ projectName }: ISlider) => {
   let slideArr: string[] = [];
 
   if (projectName === "Yentube") {
-    slideArr.push(yentube1, yentube2, yentube3, yentube4, yentube5);
+    slideArr = [...YentubeImg];
   } else if (projectName === "Yenflix") {
-    slideArr.push(yenflix1, yenflix2, yenflix3, yenflix4, yenflix5, yenflix6);
+    slideArr = [...YenflixImg];
   } else if (projectName === "YenPin") {
-    slideArr.push(yenpin1, yenpin2, yenpin3, yenpin4, yenpin5, yenpin6);
+    slideArr = [...YenPinImg];
   }
 
   const SLIDE_NUM = slideArr.length;
@@ -94,7 +78,7 @@ const Slider = ({ projectName }: ISlider) => {
   const dotArray = new Array(SLIDE_NUM).fill(0);
 
   return (
-    <div className="overflow-hidden text-black">
+    <div className="overflow-hidden text-black pt-6">
       <div
         className={`flex border-y-4`}
         ref={slideRef}

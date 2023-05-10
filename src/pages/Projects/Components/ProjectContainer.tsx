@@ -23,10 +23,10 @@ const ProjectContainer = ({ projectName, children }: IProjectContainer) => {
         <h2 className="text-5xl leading-loose">{projectName}</h2>
       </div>
       <div className="flex flex-col w-full bg-white pb-10 rounded-b-xl ">
-        <LinkContainer projectName={projectName} />
         <Slider projectName={projectName} />
         <Used projectName={projectName} />
         {children}
+        <LinkContainer projectName={projectName} />
       </div>
     </div>
   );

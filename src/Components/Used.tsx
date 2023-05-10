@@ -30,6 +30,7 @@ const Used = ({ projectName }: IUsed) => {
       "React Query",
       "React Hook Form",
       "Recoil",
+      "Github Deploy",
     ],
     Portfolio: ["무한 슬라이드", "React-scroll", "EmailJS", "Github Deploy"],
   };

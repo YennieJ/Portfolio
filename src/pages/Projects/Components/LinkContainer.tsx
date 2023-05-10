@@ -19,38 +19,39 @@ const LinkContainer = ({ projectName }: ILinkContainer) => {
     const portfolio = projectName === "Portfolio";
 
     const url: any =
-      (yentube &&
-        (urlName === "git"
-          ? "https://github.com/YennieJ/Yentube"
-          : "https://yentube.store/")) ||
-      (netflix && "https://github.com/YennieJ/Yenflix") ||
       (yenpin &&
         (urlName === "git"
           ? "https://github.com/YennieJ/YenPin"
           : "https://yentube.store/")) ||
-      (portfolio && "https://github.com/YennieJ/portfolio");
-
+      (portfolio && "https://github.com/YennieJ/portfolio") ||
+      (yentube &&
+        (urlName === "git"
+          ? "https://github.com/YennieJ/Yentube"
+          : "https://yentube.store/")) ||
+      (netflix && "https://github.com/YennieJ/Yenflix");
     window.open(url);
   };
 
   return (
-    <div className="flex justify-center my-4 ">
-      {(projectName === "Yentube" || projectName === "YenPin") && (
+    <div className="my-10">
+      더 자세히 보기
+      <div className="flex justify-center  ">
+        {(projectName === "Yentube" || projectName === "YenPin") && (
+          <div
+            className="mr-2 cursor-pointer hover:text-rose-700  "
+            onClick={() => onClick("site")}
+          >
+            <span>Site</span>
+            <AiOutlineLink className="inline-block text-6xl" />
+          </div>
+        )}
         <div
-          className="mr-2 cursor-pointer hover:text-rose-700  "
-          onClick={() => onClick("site")}
+          className="cursor-pointer hover:text-rose-700  "
+          onClick={() => onClick("git")}
         >
-          <span>Site</span>
-          <AiOutlineLink className="inline-block text-6xl" />
+          <AiFillGithub className="inline-block mr-2 text-6xl " />
+          <span>README</span>
         </div>
-      )}
-
-      <div
-        className="cursor-pointer hover:text-rose-700  "
-        onClick={() => onClick("git")}
-      >
-        <AiFillGithub className="inline-block mr-2 text-6xl " />
-        <span>README</span>
       </div>
     </div>
   );
