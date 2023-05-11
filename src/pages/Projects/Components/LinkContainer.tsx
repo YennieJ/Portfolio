@@ -23,7 +23,7 @@ const LinkContainer = ({ projectName }: ILinkContainer) => {
       (yenpin &&
         (urlName === "git"
           ? "https://github.com/YennieJ/YenPin"
-          : "https://yenniej.github.io/YenPin/")) ||
+          : "https://cardhome-84e77.web.app//")) ||
       (portfolio && "https://github.com/YennieJ/portfolio") ||
       (yentube &&
         (urlName === "git"
