@@ -75,12 +75,13 @@ const Slider = ({ projectName }: ISlider) => {
     setSlideIndex((slideIndex) => slideIndex + direction);
   };
 
+  // 몇개의 사진이 있는지, 몇번째 사진을 보고있는지
   const dotArray = new Array(SLIDE_NUM).fill(0);
 
   return (
     <div className="overflow-hidden text-black pt-6">
       <div
-        className={`flex border-y-4`}
+        className="flex border-y-4"
         ref={slideRef}
         style={{
           width: `${100 * COPIED_NUM}%`,
@@ -90,9 +91,9 @@ const Slider = ({ projectName }: ISlider) => {
           }%)`,
         }}
       >
-        {copiedArr.map((item, i) => (
+        {copiedArr.map((img, i) => (
           <div key={i} className="relative w-full text-center ">
-            <img src={item} alt={projectName} />
+            <img src={img} alt={projectName} />
           </div>
         ))}
       </div>
