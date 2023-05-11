@@ -11,6 +11,11 @@ interface ISlider {
   projectName: string;
 }
 
+// pages > projects > yentube
+// pages > projects > yenflix
+// pages > projects > yenpin
+// pages > projects > portfolio
+
 const Slider = ({ projectName }: ISlider) => {
   const [slideIndex, setSlideIndex] = useState(1);
 

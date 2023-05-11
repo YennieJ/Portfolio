@@ -12,6 +12,7 @@ interface IProjectContainer {
 // pages > projects > yentube
 // pages > projects > yenflix
 // pages > projects > yenpin
+// pages > projects > portfolio
 
 const ProjectContainer = ({ projectName, children }: IProjectContainer) => {
   return (

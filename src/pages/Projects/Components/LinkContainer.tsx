@@ -6,9 +6,10 @@ interface ILinkContainer {
   projectName: string;
 }
 
-// pages > portfolio > yentube
-// pages > portfolio > yenflix
-// pages > portfolio > yenpin
+// pages > projects > yentube
+// pages > projects > yenflix
+// pages > projects > yenpin
+// pages > projects > portfolio
 
 // 프로젝트 이름에 따라 외부 링크 연결
 const LinkContainer = ({ projectName }: ILinkContainer) => {
@@ -22,7 +23,7 @@ const LinkContainer = ({ projectName }: ILinkContainer) => {
       (yenpin &&
         (urlName === "git"
           ? "https://github.com/YennieJ/YenPin"
-          : "https://yentube.store/")) ||
+          : "https://yenniej.github.io/YenPin/")) ||
       (portfolio && "https://github.com/YennieJ/portfolio") ||
       (yentube &&
         (urlName === "git"
