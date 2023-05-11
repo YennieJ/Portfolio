@@ -16,7 +16,7 @@ const Keyword = () => {
         <li>
           <span className="-ml-2">
             새로운 것을 배워서 알맞게 사용해 목표에 달성했을 때 큰
-            <b className=" text-lg"> 성취감</b>을 느낍니다.
+            <b className="text-lg"> 성취감</b>을 느낍니다.
           </span>
         </li>
       </ul>
