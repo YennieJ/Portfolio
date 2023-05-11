@@ -18,7 +18,7 @@ const ProjectContainer = ({ projectName, children }: IProjectContainer) => {
   return (
     <div
       id={projectName}
-      className="w-full pt-24 px-3 text-neutral-800 text-center md:px-7"
+      className="w-full pt-24 px-3 text-neutral-800 text-center md:px-7 2xl:pt-10"
     >
       <div className="pt-2.5 border-b-2 border-gray-400 rounded-t-xl bg-rose-100">
         <h2 className="text-5xl leading-loose">{projectName}</h2>

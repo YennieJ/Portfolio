@@ -940,6 +940,9 @@ video {
 .pt-6 {
   padding-top: 1.5rem;
 }
+.pt-20 {
+  padding-top: 5rem;
+}
 .text-center {
   text-align: center;
 }
@@ -1119,6 +1122,10 @@ video {
     padding-right: 1.75rem;
   }
 
+  .md\:pt-10 {
+    padding-top: 2.5rem;
+  }
+
   .md\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -1174,6 +1181,14 @@ video {
   .xl\:w-6 {
     width: 1.5rem;
   }
+
+  .xl\:pt-20 {
+    padding-top: 5rem;
+  }
+
+  .xl\:pt-10 {
+    padding-top: 2.5rem;
+  }
 }
 @media (min-width: 1536px) {
 
@@ -1220,6 +1235,10 @@ video {
   .\32xl\:py-5 {
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
+  }
+
+  .\32xl\:pt-10 {
+    padding-top: 2.5rem;
   }
 
   .\32xl\:text-4xl {
