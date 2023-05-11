@@ -5,8 +5,10 @@
 ![typescript](https://img.shields.io/badge/-typescript-000000?logo=typescript&logoColor=3178C6&style=for-the-badge)
 
 ![component](https://img.shields.io/badge/-재사용컴포넌트-ffffff?&style=for-the-badge)
+![slider](https://img.shields.io/badge/-무한슬라이더-ffffff?&style=for-the-badge)
 ![scroll](https://img.shields.io/badge/-ReactScroll-ffffff?&style=for-the-badge)
-![github](https://img.shields.io/badge/-github-ffffff?logo=github&logoColor=000000&style=for-the-badge)
+![emailJS](https://img.shields.io/badge/emailjs-ffffff?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCA1MTAuODggNTEyIiBmaWxsPSIjRkNBMjUzIiBhbHQ9IkVtYWlsSlMiIGNsYXNzPSJsb2dvIG5hdmJhci1sb2dvIj48cmVjdCB4PSIyNzAuNTciIHdpZHRoPSIyNDAuMzEiIGhlaWdodD0iMjQwLjMxIiByeD0iMjQiIGZpbGw9ImluaGVyaXQiPjwvcmVjdD4gPHBhdGggZD0iTTIxNS4xMiAyNTQuNzNWNjguNWEyOS4xNiAyOS4xNiAwIDAgMC04LjU1LTIwLjY0IDI5LjE5IDI5LjE5IDAgMCAwLTQxLjI4IDBMMTYuMTggMTk3YTU1LjI3IDU1LjI3IDAgMCAwIDAgNzguMTRsMjIwLjcxIDIyMC42OGE1NS4yNyA1NS4yNyAwIDAgMCA3OC4xNCAwbDE0OS4xMS0xNDkuMTFhMjkuMTkgMjkuMTkgMCAwIDAgMC00MS4yOGwtMS4xNC0xLjEyYTI5LjE2IDI5LjE2IDAgMCAwLTIwLjY0LTguNTVIMjU2LjE1YTQxIDQxIDAgMCAxLTQxLjAzLTQxLjAzeiIgZmlsbD0iaW5oZXJpdCI+PC9wYXRoPjwvc3ZnPg==)
+![github](https://img.shields.io/badge/-githubdeploy-ffffff?logo=github&logoColor=000000&style=for-the-badge)
 
 ---
 
@@ -14,547 +16,406 @@
 
 > 진행했던 프로젝트를 바탕으로 최소한의 중복을 생각하며 코드 짜는데 집중했다.
 
-### src > pages > preview > components > PreviewContainer.tsx
+<img width="1680" alt="ProjectButton" src="https://github.com/YennieJ/YennieJ.github.io/assets/108519185/8c7ea994-6fa3-4b0c-83f7-beb74c04b344">
 
-사진
-
-```ts
-
-```
-
-### 인증 서비스
-
-service > auth_service.tsx
-
-https://user-images.githubusercontent.com/108519185/233175121-57ce0a89-ed29-4f4a-8cd6-2652c94ded99.mp4
-
-1. User + context
+### src > Components > Nav > Nav.tsx
 
 ```ts
-import { createContext, useState, useEffect } from "react";
-
-import { auth } from "./firebase";
-import { User } from "@firebase/auth";
-
-type Props = {
-  children: React.ReactNode;
-};
-
-const AuthContext = createContext<User | null>(null);
-
-// firebase User로 로그인 여부 확인.
-export const AuthProvider = ({ children }: Props) => {
-  const [user, setUser] = useState<User | null>(null);
-  useEffect(() => {
-    const userInfo = auth.onAuthStateChanged((fbUser) => {
-      setUser(fbUser);
-    });
-    return userInfo;
-  }, []);
-
-  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
-};
-
-// App.tsx 최상위에 AuthProvider 감싸주기
-```
-
-- Router + ProtectRoute
-
-```ts
-// router > protectRoute.tsx
-
-import React, { useContext } from "react";
-import { Navigate } from "react-router";
-import { AuthContext } from "service/authContext";
-
-type Props = {
-  children: JSX.Element;
-};
-
-// User 정보가 없으면 home으로 돌아간다.
-const ProtectRoute = ({ children }: Props) => {
-  const userInfo = useContext(AuthContext);
-
-  if (!userInfo) {
-    return <Navigate to="/" />;
-  }
-
-  return children;
-};
-
-export default ProtectRoute;
-
-// router > router.tsx
-
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import ProtectRoute from "./protectRoute";
+import ProjectButton from "./ProjectButton";
 
-import Home from "pages/home/home";
-import My from "pages/my";
+// 현재 보고있는 페이지를 알려줌. 반응형
 
-const Router = () => {
+const Nav = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="my"
-          element={
-            <ProtectRoute>
-              <My />
-            </ProtectRoute>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+    <div>
+      <ul>
+        <ProjectButton projectName="YenPin" />
+        <ProjectButton projectName="Portfolio" />
+        <ProjectButton projectName="Yentube" />
+        <ProjectButton projectName="Yenflix" />
+      </ul>
+    </div>
   );
 };
 
-export default Router;
+export default Nav;
 ```
 
-2.  Signup, Login, GoogleProvider, Signout
-
-https://user-images.githubusercontent.com/108519185/233175022-f14ad741-7350-4168-8090-a9c803d11244.mp4
+### src > Components > Nav > ProjectButton.tsx
 
 ```ts
-import { auth } from "./firebase";
+import React from "react";
+import { Link } from "react-scroll";
 
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  signInWithPopup,
-  GoogleAuthProvider,
-} from "@firebase/auth";
+// react-scroll: Link태그의 to 이름과 태그에 id 가 동일하면 클릭 시 이동
 
-interface IAuth {
-  email: string;
-  password: string;
+interface IProjectButton {
+  projectName: string;
 }
 
-export const AuthSignUp = ({ email, password }: IAuth) => {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      console.log("SignUp");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-export const AuthLogIn = ({ email, password }: IAuth) => {
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      console.log("Login");
-    })
-    .catch((e) => {
-      console.log(error);
-    });
-};
-
-export const GoogleProvider = () => {
-  const provider = new GoogleAuthProvider();
-
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      if (!credential) return null;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-export const AuthSignOut = () => {
-  signOut(auth);
-};
-```
-
-### 스토리지
-
-프로필 업데이트
-
-https://user-images.githubusercontent.com/108519185/233175159-89ab30e3-6d91-48f5-8f78-04a587c90079.mp4
-
-```ts
-import { auth } from "./firebase";
-
-import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-
-interface ProfileProps {
-  getName: string;
-  photo?: File;
-  userId: string;
-}
-
-export const UpdateProfile = async ({
-  getName,
-  photo,
-  userId,
-}: ProfileProps) => {
-  const storage = getStorage();
-
-  const fileRef = ref(storage, `profile/${userId}.png`);
-
-  photo && (await uploadBytes(fileRef, photo));
-
-  const URL = await getDownloadURL(fileRef);
-
-  updateProfile(auth.currentUser!, {
-    displayName: getName,
-    photoURL: URL,
-  })
-    .then(() => {
-      // Profile updated!
-      // ...
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-```
-
-### 데이터 베이스
-
-service > card_repository.ts
-
-> 구조 : cards > cardID > cardInfo & userUID
-
-https://user-images.githubusercontent.com/108519185/233175232-894149e8-0bd5-4a7b-8698-80aae71a79a6.mp4
-
-```ts
-interface CardType {
-  id: number;
-  userUid: string;
-  photoURL: string;
-  cardName: string;
-  message: string;
-  likeCount: number;
-  likeUids: string[];
-  createdAt?: Date;
-}
-import {
-  getFirestore,
-  setDoc,
-  doc,
-  increment,
-  arrayUnion,
-  arrayRemove,
-  getDocs,
-  collection,
-  query,
-  deleteDoc,
-  where,
-  orderBy,
-  serverTimestamp,
-} from "firebase/firestore";
-
-// create
-export async function FbCreateCard(card: CardType) {
-  await setDoc(doc(db, `/cards/${card.id}`), {
-    cardInfo,
-  });
-}
-
-// update
-export async function FbUpdateCard(card: CardType) {
-  await setDoc(
-    doc(db, `/cards/${card.id}`),
-    {
-      changeThings,
-    },
-    { merge: true }
-  );
-}
-
-// delete
-export async function FbDeleteCard(cardId: number) {
-  deleteDoc(doc(db, `/cards/${cardId}`));
-}
-
-// getCards
-export async function FbGetCards(userUid: string) {
-  // FbGetAllCards
-  // 최근에 만들어진 순서대로
-  const q = query(collection(db, "cards"), orderBy("createdAt", "desc"));
-  // FbGetMyCards
-  // 현재 로그인 되어있는 User 체크
-  const q = query(
-    collection(db, "cards"),
-    orderBy("createdAt", "desc"),
-    where("userUid", "==", userUid)
-  );
-  // FbGetPopularCards
-  // 좋아요 수가 많은 순서대로
-  const q = query(collection(db, "cards"), orderBy("likeCount", "desc"));
-
-  const querySnapshot = await getDocs(q);
-  const data = querySnapshot.docs.map((doc) => ({ ...doc.data() }));
-
-  return data as CardType[];
-}
-```
-
-### 검색
-
-https://user-images.githubusercontent.com/108519185/233175267-1904c294-4171-47aa-a6d5-b6ca0e710ed2.mp4
-
-1. src > components > header > components > searchBar
-
-```ts
-  const onSubmit = async () => {
-    if (keyword.length > 0) {
-      const response = await FbGetAllCards();
-      // 전체 카드에서 원하는 키워드 필터하기
-      const searchValue = response.filter((card) =>
-        card.cardName.includes("keyword")
-      );
-      navigate("/search", { state: { searchValue, "keyword" } });
-    }
-  };
-```
-
-2. pages > search
-
-```ts
-const location = useLocation();
-const searchValue = location.state.searchValue;
-const keyword = location.state.keyword;
-```
-
-## 좋아요
-
-src > components > preview > card
-
-https://user-images.githubusercontent.com/108519185/233175522-4d6d842a-a74e-40bc-9974-c76d3eff5468.mp4
-
-```ts
-const { mutate: likeCard } = useLikeMutationData(userUid!, card);
-
-// 좋아요
-const onLikes = () => {
-  if (!userUid) {
-    const checkLogin = window.confirm(
-      "로그인이 필요합니다. 로그인 페이지로 이동할까요?"
-    );
-    if (checkLogin) {
-      navigate("/welcome");
-    }
-  } else {
-    likeCard();
-  }
-};
-```
-
-## DarkMode (Recoil + styled-components)
-
-https://user-images.githubusercontent.com/108519185/233175288-6a8b3afe-b417-4642-8e96-ddccb0d66e54.mp4
-
-1. Atom.ts
-
-```ts
-// recoil
-import { atom } from "recoil";
-
-export const isDarkAtom = atom({
-  key: "isDark",
-  default: false,
-});
-```
-
-2. theme.ts
-
-```ts
-// 사용 할 CSS
-import { DefaultTheme } from "styled-components";
-
-export const lightTheme: DefaultTheme = {
-  textColor: "#202020",
-  bgColor: "#ffffff",
-
-  contentBgColor: "#e9e9e9",
-  hoverColor: "rgba(0, 0, 0, 0.3)",
-
-  buttonTheme: "#f3f3f3",
-};
-
-export const darkTheme: DefaultTheme = {
-  textColor: "#d9d9d9",
-  bgColor: "#1e1f21",
-
-  contentBgColor: "#2f3640",
-  hoverColor: "rgba(225, 225, 225, 0.5)",
-
-  buttonTheme: "#cdcdcd",
-};
-```
-
-3. App.tsx
-
-````ts
-import { useRecoilValue } from "recoil";
-
-import { ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme } from "style/theme";
-import { isDarkAtom } from "atoms";
-
-const App = () => {
-  const isDark = useRecoilValue(isDarkAtom);
+const ProjectButton = ({ projectName }: IProjectButton) => {
   return (
-      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-        <Components />
-      </ThemeProvider>
+    <li>
+      <Link
+        to={projectName}
+        spy={true}
+        smooth={true}
+        duration={100}
+        className="flex items-center w-12 h-full px-3 cursor-pointer transition ease-in delay-150 duration-300 group-hover:bg-rose-700 md:w-full md:justify-center"
+        activeClass="bg-rose-700 cursor-default pointer-events-none [&_div]:bg-white md:[&_div]:opacity-0 [&_span]:opacity-100"
+      >
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-rose-700 rounded-full transition ease-in delay-150 duration-300 group-hover:bg-white md:group-hover:opacity-0  2xl:w-6 2xl:h-6" />
+        <span className="hidden md:inline opacity-0 transition ease-in delay-150 duration-300 group-hover:opacity-100">
+          {projectName}
+        </span>
+      </Link>
+    </li>
   );
 };
 
-export default App;```
-````
+export default ProjectButton;
+```
 
-## Pagination
+<img width="1680" alt="Preview" src="https://github.com/YennieJ/YennieJ.github.io/assets/108519185/285e6bf3-f70f-433d-81c4-ad5b5a4b4caa">
 
-https://user-images.githubusercontent.com/108519185/233175321-49cfeedc-449e-4dbc-8b8a-ebf8bf116677.mp4
-
-1. src > components > preview
+### src > pages > Preview > Preview.tsx
 
 ```ts
-import React, { useState } from "react";
+import React from "react";
 
-import Pagination from "./components/pagination";
+import PreviewContainer from "./Components/PreviewContainer";
 
-import { CardType } from "types";
-
-interface PreviewProps {
-  cards?: CardType[];
-}
-
-//한 페이지에 들어 갈 card 갯수
-const cardsPerPage = 6;
-
-// pages > home,popular,my
-const Preview = ({ cards }: PreviewProps) => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
-
-  // currentPage에 따라 보여질 cards.slice
-  const indexOfLastItem = currentPage * cardsPerPage;
-  const indexOfFirstItem = indexOfLastItem - cardsPerPage;
-  const currentItems = cards!.slice(indexOfFirstItem, indexOfLastItem);
-
-  //페이지 수 구하기
-  const pages: number[] = [];
-  for (let i = 1; i <= Math.ceil(cards!.length / cardsPerPage); i++) {
-    pages.push(i);
-  }
-
+const Preview = () => {
   return (
-    <>
-      {currentItems.map((card: CardType) => (
-        <Card key={card.id} card={card} />
-      ))}
-      <Pagination
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        pages={pages}
-      />
-    </>
+    <div id="preview">
+      <PreviewContainer projectName="YenPin" />
+      <PreviewContainer projectName="Portfolio" />
+      <PreviewContainer projectName="Yentube" />
+      <PreviewContainer projectName="Yenflix" />
+    </div>
   );
 };
 
 export default Preview;
 ```
 
-2. src > components > preview > componenets > pagination
+### src > pages > Preview > Components > PreviewContainer
 
 ```ts
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Link } from "react-scroll";
 
-import * as S from "./pagination.styled";
+// react-scroll: Link태그의 to 이름과 태그에 id 가 동일하면 클릭 시 이동
 
-// preview에서 받아오는 Props
-interface IPagination {
-  currentPage: number;
-  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-  // 페이지 수
-  pages: number[];
+interface IPreviewContainer {
+  projectName: string;
 }
 
-const Pagination = ({ currentPage, setCurrentPage, pages }: IPagination) => {
-  // 한번에 보여 질 페이지 갯수
-  const pageNumberLimit: number = 5;
-
-  const [minPageNumberLimit, setMinPageNumberLimit] = useState<number>(0);
-  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState<number>(5);
-
-  //페이지 디자인 (ex, 1-5 or 6-10)
-  const renderPageNumber = pages.map((number: number) => {
-    const pageNumber = [];
-
-    if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
-      pageNumber.push(
-        <S.PageButton
-          className={currentPage === number ? "active" : undefined}
-          key={number}
-          onClick={() => setCurrentPage(number)}
-        >
-          {number}
-        </S.PageButton>
-      );
-    } else if (number === currentPage && number === minPageNumberLimit) {
-      setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
-      setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit);
-    }
-    return pageNumber;
-  });
-
-  //다음페이지
-  const handleNextButton = () => {
-    setCurrentPage(currentPage + 1);
-    if (currentPage + 1 > maxPageNumberLimit) {
-      setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
-      setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit);
-    }
-  };
-
-  //이전페이지
-  const handlePrevButton = () => {
-    setCurrentPage(currentPage - 1);
-    if ((currentPage - 1) % pageNumberLimit === 0) {
-      setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
-      setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit);
-    }
-  };
-
-  //카드 삭제 할때 페이지 변경
-  useEffect(() => {
-    if (pages.length !== 0) {
-      for (let i = pages.length; i === currentPage - 1; i--) {
-        setCurrentPage(i);
-      }
-    }
-  }, [currentPage, pages.length, setCurrentPage]);
-
+// 썸네일, 프로젝트 이름
+const PreviewContainer = ({ projectName }: IPreviewContainer) => {
   return (
-    <>
-      <button
-        onClick={handlePrevButton}
-        disabled={currentPage === pages[0] || pages.length === 0 ? true : false}
-      >
-        prev
-      </button>
-      {renderPageNumber}
-      <button
-        onClick={handleNextButton}
-        disabled={
-          currentPage === pages.length || pages.length === 0 ? true : false
-        }
-      >
-        next
-      </button>
-    </>
+    <Link to={projectName} spy={true} smooth={true} duration={300}>
+      <img src={require(`../Images/${projectName}.png`)} alt={projectName} />
+      <div>{projectName}</div>
+    </Link>
   );
 };
 
-export default Pagination;
+export default PreviewContainer;
+```
+
+### [src > pages > Projects > Compoenets > LinkContainer.tsx](https://github.com/YennieJ/YennieJ.github.io/blob/main/src/pages/Projects/Components/LinkContainer.tsx)
+
+<img width="1680" alt="Link" src="https://github.com/YennieJ/YennieJ.github.io/assets/108519185/69bc8b59-c45a-4be7-b6ab-3d1e9f2ff2d0">
+
+### [src > pages > Projects > Compoenets > ProjectContainer.tsx](https://github.com/YennieJ/YennieJ.github.io/blob/main/src/pages/Projects/Components/ProjectContainer.tsx)
+
+<img width="1680" alt="Project UI" src="https://github.com/YennieJ/YennieJ.github.io/assets/108519185/a5dae21c-8d89-4580-a44f-18b06c39c416">
+
+## 무한 슬라이더
+
+https://github.com/YennieJ/YennieJ.github.io/assets/108519185/d3f6c3ec-926a-4d0c-9218-0eb8f6a9d52d
+
+### src > pages > Projects > Components > Slider.tsx
+
+```ts
+import React, { useState, useRef, useEffect } from "react";
+
+import PortfolioImg from "./Portfolio/PortfolioImg";
+import YenPinImg from "./YenPin/YenPinImg";
+import YentubeImg from "./Yentube/YentubeImg";
+import YenflixImg from "./Yenflix/YenflixImg";
+
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+
+interface ISlider {
+  projectName: string;
+}
+
+const Slider = ({ projectName }: ISlider) => {
+  const [slideIndex, setSlideIndex] = useState(1);
+
+  const slideRef = useRef<HTMLDivElement>(null);
+
+  let slideArr: string[] = [];
+
+  if (projectName === "Yentube") {
+    slideArr = [...YentubeImg];
+  } else if (projectName === "Yenflix") {
+    slideArr = [...YenflixImg];
+  } else if (projectName === "YenPin") {
+    slideArr = [...YenPinImg];
+  } else if (projectName === "Portfolio") {
+    slideArr = [...PortfolioImg];
+  }
+
+  const SLIDE_NUM = slideArr.length;
+
+  //기본 배열의 마지막
+  const beforeSlide = slideArr[SLIDE_NUM - 1];
+
+  //기본 배열의 처음
+  const afterSlide = slideArr[0];
+
+  //무한 슬라이드를 구현하기 위해 새로운 배열
+  const copiedArr = [beforeSlide, ...slideArr, afterSlide];
+
+  //무한 슬라이드 사이즈
+  const COPIED_NUM = copiedArr.length;
+
+  useEffect(() => {
+    if (slideIndex === slideArr.length + 1) {
+      setTimeout(() => {
+        setSlideIndex(1);
+        if (slideRef.current) {
+          slideRef.current.style.transition = "";
+        }
+      }, 200);
+
+      setTimeout(() => {
+        if (slideRef.current) {
+          slideRef.current.style.transition = "all 300ms ease-in-out";
+        }
+      }, 300);
+    }
+
+    if (slideIndex === 0) {
+      setTimeout(() => {
+        setSlideIndex(slideArr.length);
+        if (slideRef.current) {
+          slideRef.current.style.transition = "";
+        }
+      }, 200);
+
+      setTimeout(() => {
+        if (slideRef.current) {
+          slideRef.current.style.transition = "all 300ms ease-in-out";
+        }
+      }, 300);
+    }
+  }, [slideArr.length, slideIndex]);
+
+  const slideHandler = (direction: number) => {
+    setSlideIndex((slideIndex) => slideIndex + direction);
+  };
+
+  // 몇개의 사진이 있는지, 몇번째 사진을 보고있는지
+  const dotArray = new Array(SLIDE_NUM).fill(0);
+
+  return (
+    <div>
+      <div
+        ref={slideRef}
+        style={{
+          width: `${100 * COPIED_NUM}%`,
+          transition: "all 300ms ease-in-out",
+          transform: `translateX(${
+            -1 * ((100 / copiedArr.length) * slideIndex)
+          }%)`,
+        }}
+      >
+        {copiedArr.map((img, i) => (
+          <div key={i}>
+            <img src={img} alt={projectName} />
+          </div>
+        ))}
+      </div>
+      <div>
+        <button onClick={() => slideHandler(-1)} />
+
+        {dotArray.map((v, i) => (
+          <div
+            key={i}
+            className={
+              i + 1 === slideIndex
+                ? "w-6 h-6 mx-[2px] border-2 rounded-full bg-stone-700"
+                : " w-5 h-5 mx-[1px] border-2 rounded-full"
+            }
+          />
+        ))}
+        <button onClick={() => slideHandler(1)} />
+      </div>
+    </div>
+  );
+};
+
+export default Slider;
+```
+
+## EmailJS
+
+<img width="1680" alt="EmailForm" src="https://github.com/YennieJ/YennieJ.github.io/assets/108519185/e4aa1978-ed4f-49ba-8cb5-b47bf53f76f8">
+
+### src > pages > Profile > Profile.tsx
+
+```ts
+import React, { useState } from "react";
+
+import Contect from "./Components/Contect";
+import EmailForm from "./Components/EmailForm";
+
+const Profile = () => {
+  const [emailOpen, setEmailOpen] = useState(false);
+
+  return (
+    <div>
+      <Contect setEmailOpen={setEmailOpen} />
+      <EmailForm emailOpen={emailOpen} setEmailOpen={setEmailOpen} />
+    </div>
+  );
+};
+
+export default Profile;
+```
+
+### src > pages > Profile > Context.tsx
+
+```ts
+import React from "react";
+
+interface IContect {
+  setEmailOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+// email
+
+const Contect = ({ setEmailOpen }: IContect) => {
+  const openEmailForm = () => {
+    document.body.style.overflow = "hidden";
+    setEmailOpen(true);
+  };
+
+  return (
+    <div>
+      <span
+        className="font-normal cursor-pointer hover:underline underline-offset-8  "
+        onClick={openEmailForm}
+      >
+        l.yennie.j@gmail.com
+      </span>
+    </div>
+  );
+};
+
+export default Contect;
+```
+
+### src > pages > Profile > EmailForm.tsx
+
+```ts
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+
+interface IEmailForm {
+  emailOpen: boolean;
+  setEmailOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+// emailjs를 통해서 이메일 받기
+
+const EmailForm = ({ emailOpen, setEmailOpen }: IEmailForm) => {
+  const form = useRef<any>(null);
+
+  const closeEmailForm = () => {
+    if (window.confirm("이 창을 나가시겠습니까?") === true) {
+      return (
+        form.current.reset(),
+        setEmailOpen(false),
+        (document.body.style.overflow = "auto")
+      );
+    }
+  };
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (window.confirm("이메일을 보내겠습니까?") === true) {
+      return emailjs
+        .sendForm(
+          process.env.REACT_APP_EMAIL_SERVICE_ID as string,
+          process.env.REACT_APP_EMAIL_TEMPLATE_ID as string,
+          form.current,
+          process.env.REACT_APP_EMAIL_PUBLIC_KEY
+        )
+        .then(
+          () => {
+            window.alert("이메일이 성공적으로 보내졌습니다.");
+            form.current.reset();
+            setEmailOpen(false);
+          },
+          () => {
+            window.alert("이메일 보내기에 실패했습니다.");
+            form.current.reset();
+            setEmailOpen(false);
+          }
+        );
+    } else {
+      return;
+    }
+  };
+
+  const inputCss =
+    "min-w-full px-3 mb-3 border rounded-lg bg-white text-neutral-800 font-normal";
+
+  return (
+    <div onClick={closeEmailForm}>
+      <form
+        ref={form}
+        onSubmit={sendEmail}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div>
+          <div>To Yennie</div>
+          <input
+            name="subject"
+            placeholder="제목"
+            className={"h-10 " + inputCss}
+          />
+        </div>
+        <textarea
+          name="message"
+          placeholder="메세지"
+          className={"h-40 pt-2 " + inputCss}
+        />
+        <div>
+          <input
+            name="contect"
+            placeholder="연락처 혹은 이메일"
+            className={"h-10 " + inputCss}
+          />
+          <input
+            name="from_name"
+            placeholder="보내는 이"
+            className={"h-10 " + inputCss}
+          />
+        </div>
+        <button className="py-2 bg-black text-2xl">send</button>
+      </form>
+    </div>
+  );
+};
+
+export default EmailForm;
 ```
