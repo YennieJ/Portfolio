@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
+import PortfolioImg from "./Portfolio/PortfolioImg";
 import YenPinImg from "./YenPin/YenPinImg";
 import YentubeImg from "./Yentube/YentubeImg";
 import YenflixImg from "./Yenflix/YenflixImg";
@@ -23,6 +24,8 @@ const Slider = ({ projectName }: ISlider) => {
     slideArr = [...YenflixImg];
   } else if (projectName === "YenPin") {
     slideArr = [...YenPinImg];
+  } else if (projectName === "Portfolio") {
+    slideArr = [...PortfolioImg];
   }
 
   const SLIDE_NUM = slideArr.length;
