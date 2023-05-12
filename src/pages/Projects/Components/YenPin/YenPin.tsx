@@ -14,8 +14,8 @@ const YenPin = () => {
         <li className="mb-1.5">
           <span className={pointUsed}>Firebase</span>를 사용하여 인증
           서비스(Google Login,LogIn,SignUp),데이터 베이스(사진과 제목,사진에
-          대한 설명을 CRUD와 검색), 스토리지(프로필 사진 업데이트)등 서버 구축을
-          사용했다.
+          대한 설명을 CRUD와 검색), 스토리지(프로필 사진 업데이트), 호스팅등
+          서버 구축을 사용했다.
         </li>
         <li className="mb-1.5">
           <span className={pointUsed}>React-query</span>로 데이터를 받아오고{" "}
