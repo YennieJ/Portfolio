@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.93151b14.css",
-    "main.js": "/static/js/main.e0a003c1.js",
+    "main.js": "/static/js/main.135736da.js",
     "static/media/Yenflix.png": "/static/media/Yenflix.a0fdd3407287b47ab818.png",
     "static/media/yenflix2.png": "/static/media/yenflix2.7e4980662f97f7c402ce.png",
     "static/media/yenflix4.png": "/static/media/yenflix4.d8c2d95707b14a1658cd.png",
@@ -33,10 +33,10 @@
     "static/media/portfolio4.png": "/static/media/portfolio4.6ba8254395d964819e08.png",
     "index.html": "/index.html",
     "main.93151b14.css.map": "/static/css/main.93151b14.css.map",
-    "main.e0a003c1.js.map": "/static/js/main.e0a003c1.js.map"
+    "main.135736da.js.map": "/static/js/main.135736da.js.map"
   },
   "entrypoints": [
     "static/css/main.93151b14.css",
-    "static/js/main.e0a003c1.js"
+    "static/js/main.135736da.js"
   ]
 }
