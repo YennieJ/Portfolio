@@ -1,4 +1,5 @@
 import React from "react";
+import Portfolio from "../pages/Projects/Components/Portfolio/Portfolio";
 
 interface IUsed {
   projectName: string;
@@ -62,6 +63,7 @@ const Used = ({ projectName }: IUsed) => {
           </span>
         ))}
       </div>
+
       <div className="mb-3">
         {extendUsed.map((item, i) => (
           <span className={projectUsed} key={i}>

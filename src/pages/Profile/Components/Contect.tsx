@@ -17,7 +17,7 @@ const Contect = ({ setEmailOpen }: IContect) => {
   };
 
   return (
-    <div className="flex justify-center mb-8 ">
+    <div className="flex justify-center items-center mb-8 ">
       <div className="mr-4 font-bold">이예진</div>
       <ul className="pl-4 border-l-4 ">
         <li>

@@ -2,7 +2,7 @@ import React from "react";
 
 import Nav from "./Components/Nav/Nav";
 import Profile from "./pages/Profile/Profile";
-import Preview from "./pages/Preview/Preview";
+// import Preview from "./pages/Preview/Preview";
 import Projects from "./pages/Projects/Projects";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Nav />
       <article className="w-full h-full 2xl:w-4/5">
         <Profile />
-        <Preview />
+        {/* <Preview /> */}
         <Projects />
       </article>
     </div>

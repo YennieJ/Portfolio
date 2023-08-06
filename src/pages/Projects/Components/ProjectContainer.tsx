@@ -20,7 +20,7 @@ const ProjectContainer = ({ projectName, children }: IProjectContainer) => {
       id={projectName}
       className="w-full pt-24 px-3 text-neutral-800 text-center md:px-7 2xl:pt-10"
     >
-      <div className="pt-2.5 border-b-2 border-gray-400 rounded-t-xl bg-rose-100">
+      <div className="pt-2.5 border-b-2 border-gray-400 rounded-t-xl bg-stone-800 text-white">
         <h2 className="text-5xl leading-loose">{projectName}</h2>
       </div>
       <div className="flex flex-col w-full bg-white pb-10 rounded-b-xl ">

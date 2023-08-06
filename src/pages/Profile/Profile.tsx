@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 
 import Contect from "./Components/Contect";
-import Keyword from "./Components/Keyword";
-import Used from "../../Components/Used";
 import EmailForm from "./Components/EmailForm";
-import Introduce from "./Components/Introduce";
+import ForTheGreat from "./Components/ForTheGreat";
+import Skill from "./Components/Skill";
 
 const Profile = () => {
   const [emailOpen, setEmailOpen] = useState(false);
@@ -12,7 +11,7 @@ const Profile = () => {
   return (
     <div
       id="profile"
-      className="flex items-center min-h-screen h-full px-3 py-20 bg-stone-800 "
+      className="flex items-center min-h-screen h-full px-3 py-20 bg-stone-900 "
     >
       <div className="w-full">
         <div className="flex justify-center items-baseline mb-7 lg:mb-20">
@@ -23,10 +22,10 @@ const Profile = () => {
         </div>
         <div className="flex flex-col mb-10 lg:flex-row-reverse lg:justify-around ">
           <Contect setEmailOpen={setEmailOpen} />
-          <Keyword />
+          <ForTheGreat />
         </div>
-        <Used projectName="Profile" />
-        <Introduce />
+
+        <Skill />
       </div>
       <EmailForm emailOpen={emailOpen} setEmailOpen={setEmailOpen} />
     </div>
@@ -34,3 +33,40 @@ const Profile = () => {
 };
 
 export default Profile;
+
+// import React, { useState } from "react";
+
+// import Contect from "./Components/Contect";
+// import Keyword from "./Components/Keyword";
+// import Used from "../../Components/Used";
+// import EmailForm from "./Components/EmailForm";
+// import Introduce from "./Components/Introduce";
+
+// const Profile = () => {
+//   const [emailOpen, setEmailOpen] = useState(false);
+
+//   return (
+//     <div
+//       id="profile"
+//       className="flex items-center min-h-screen h-full px-3 py-20 bg-stone-800 "
+//     >
+//       <div className="w-full">
+//         <div className="flex justify-center items-baseline mb-7 lg:mb-20">
+//           <h1 className="inline-block text-7xl mr-5 underline underline-offset-8">
+//             Yennie
+//           </h1>
+//           <span className="font-normal">FE Developer</span>
+//         </div>
+//         <div className="flex flex-col mb-10 lg:flex-row-reverse lg:justify-around ">
+//           <Contect setEmailOpen={setEmailOpen} />
+//           <Keyword />
+//         </div>
+//         <Used projectName="Profile" />
+//         <Introduce />
+//       </div>
+//       <EmailForm emailOpen={emailOpen} setEmailOpen={setEmailOpen} />
+//     </div>
+//   );
+// };
+
+// export default Profile;

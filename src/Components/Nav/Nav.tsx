@@ -8,7 +8,7 @@ import ProjectButton from "./ProjectButton";
 
 const Nav = () => {
   return (
-    <div className="fixed top-0 w-full bg-yellow-500 z-10 2xl:flex 2xl:items-center 2xl:right-0 2xl:w-1/5 2xl:h-screen">
+    <div className="fixed top-0 w-full bg-stone-800 z-10 text-slate-600 2xl:flex 2xl:items-center 2xl:right-0 2xl:w-1/5 2xl:h-screen">
       <ul className="flex w-full text-3xl 2xl:text-6xl 2xl:flex-col">
         <li className="flex flex-row items-center leading-loose">
           <Link
@@ -16,14 +16,14 @@ const Nav = () => {
             spy={true}
             smooth={true}
             duration={300}
-            className="w-full px-6 cursor-pointer hover:bg-stone-800"
-            activeClass="bg-stone-800 cursor-default pointer-events-none"
+            className="w-full px-6 cursor-pointer hover:text-white "
+            activeClass="bg-stone-900 cursor-default pointer-events-none text-white "
           >
             Profile
           </Link>
         </li>
         <li className="flex flex-row items-center leading-loose 2xl:flex-col">
-          <Link
+          {/* <Link
             to="preview"
             spy={true}
             smooth={true}
@@ -32,12 +32,13 @@ const Nav = () => {
             activeClass="bg-green-950 cursor-default pointer-events-none"
           >
             Projects
-          </Link>
+          </Link> */}
+
           <ul className="flex h-full text-2xl 2xl:flex-col 2xl:w-full 2xl:text-4xl">
             <ProjectButton projectName="YenPin" />
             <ProjectButton projectName="Portfolio" />
-            <ProjectButton projectName="Yentube" />
-            <ProjectButton projectName="Yenflix" />
+            {/* <ProjectButton projectName="Yentube" />
+            <ProjectButton projectName="Yenflix" /> */}
           </ul>
         </li>
       </ul>
