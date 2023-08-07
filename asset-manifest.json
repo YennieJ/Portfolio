@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.0313eb8b.css",
-    "main.js": "/static/js/main.23a5f338.js",
+    "main.css": "/static/css/main.896cde7b.css",
+    "main.js": "/static/js/main.548a695e.js",
     "static/media/yenflix2.png": "/static/media/yenflix2.7e4980662f97f7c402ce.png",
     "static/media/yenflix4.png": "/static/media/yenflix4.d8c2d95707b14a1658cd.png",
     "static/media/yentube2.png": "/static/media/yentube2.6736b469f719a9069b69.png",
@@ -16,7 +16,7 @@
     "static/media/yenpin3.png": "/static/media/yenpin3.9de0b0d7b4d4fb471870.png",
     "static/media/yenpin2.png": "/static/media/yenpin2.66ec1f384abe249ae21c.png",
     "static/media/yenpin6.png": "/static/media/yenpin6.919d38f0bd8b0d3a10c1.png",
-    "static/media/portfolio.png": "/static/media/portfolio.4ba1759eea306ea46c88.png",
+    "static/media/general.png": "/static/media/general.05b0cbae216560e7ac38.png",
     "static/media/yenpin9.png": "/static/media/yenpin9.afbf778e2dc3c3637540.png",
     "static/media/yenpin5.png": "/static/media/yenpin5.b54f46131844043018af.png",
     "static/media/yenpin7.png": "/static/media/yenpin7.a348c6e53978fcf8f614.png",
@@ -24,11 +24,11 @@
     "static/media/yenpin4.png": "/static/media/yenpin4.cd5b1005e946194563a4.png",
     "static/media/yenflix3.png": "/static/media/yenflix3.ecc8e89d735e7ac948d6.png",
     "index.html": "/index.html",
-    "main.0313eb8b.css.map": "/static/css/main.0313eb8b.css.map",
-    "main.23a5f338.js.map": "/static/js/main.23a5f338.js.map"
+    "main.896cde7b.css.map": "/static/css/main.896cde7b.css.map",
+    "main.548a695e.js.map": "/static/js/main.548a695e.js.map"
   },
   "entrypoints": [
-    "static/css/main.0313eb8b.css",
-    "static/js/main.23a5f338.js"
+    "static/css/main.896cde7b.css",
+    "static/js/main.548a695e.js"
   ]
 }
