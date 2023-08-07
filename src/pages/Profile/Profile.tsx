@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Contect from "./Components/Contect";
 import EmailForm from "./Components/EmailForm";
 import ForTheGreat from "./Components/ForTheGreat";
+import Introduce from "./Components/Introduce";
 import Skill from "./Components/Skill";
 
 const Profile = () => {
@@ -22,7 +23,8 @@ const Profile = () => {
         </div>
         <div className="flex flex-col mb-10 lg:flex-row-reverse lg:justify-around ">
           <Contect setEmailOpen={setEmailOpen} />
-          <ForTheGreat />
+          {/* <ForTheGreat /> */}
+          <Introduce />
         </div>
 
         <Skill />

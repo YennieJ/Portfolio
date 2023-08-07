@@ -72,9 +72,9 @@ const Skill = () => {
     }
   };
   return (
-    <div className="px-10">
+    <div className="px-10 lg:px-14 xl:px-20 ">
       <h2 className="pb-8 text-4xl leading-relaxed">Skill</h2>
-      <div className="mb-8">
+      <div className="mb-8 ">
         {portfolioSkill.map((item, i) => (
           <button
             type="button"
