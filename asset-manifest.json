@@ -1,42 +1,34 @@
 {
   "files": {
-    "main.css": "/static/css/main.93151b14.css",
-    "main.js": "/static/js/main.b89189bf.js",
-    "static/media/Yenflix.png": "/static/media/Yenflix.a0fdd3407287b47ab818.png",
+    "main.css": "/static/css/main.0313eb8b.css",
+    "main.js": "/static/js/main.23a5f338.js",
     "static/media/yenflix2.png": "/static/media/yenflix2.7e4980662f97f7c402ce.png",
     "static/media/yenflix4.png": "/static/media/yenflix4.d8c2d95707b14a1658cd.png",
     "static/media/yentube2.png": "/static/media/yentube2.6736b469f719a9069b69.png",
     "static/media/yentube1.png": "/static/media/yentube1.941db5569de457591928.png",
     "static/media/yentube4.png": "/static/media/yentube4.b4bb2141976807a97a44.png",
-    "static/media/Yentube.png": "/static/media/Yentube.d3d4a5ebc720ec0920d0.png",
     "static/media/yenflix6.png": "/static/media/yenflix6.a2faec7fb8b4b817b06b.png",
     "static/media/yenflix5.png": "/static/media/yenflix5.75602a4284acdf2b30d0.png",
     "static/media/yentube3.png": "/static/media/yentube3.4e31a06ad54d9073f85a.png",
     "static/media/yentube5.png": "/static/media/yentube5.b2edc12fd8117f0f3e67.png",
-    "static/media/portfolio2.png": "/static/media/portfolio2.254ccf1800ef1302b3f2.png",
     "static/media/yenpin8.png": "/static/media/yenpin8.a6c173a034ccc2f6eda9.png",
     "static/media/yenpin1.png": "/static/media/yenpin1.1e626c7026c14485e183.png",
     "static/media/yenpin3.png": "/static/media/yenpin3.9de0b0d7b4d4fb471870.png",
     "static/media/yenpin2.png": "/static/media/yenpin2.66ec1f384abe249ae21c.png",
     "static/media/yenpin6.png": "/static/media/yenpin6.919d38f0bd8b0d3a10c1.png",
-    "static/media/YenPin.png": "/static/media/YenPin.45a8e01504480828e6b7.png",
+    "static/media/portfolio.png": "/static/media/portfolio.4ba1759eea306ea46c88.png",
     "static/media/yenpin9.png": "/static/media/yenpin9.afbf778e2dc3c3637540.png",
-    "static/media/portfolio3.png": "/static/media/portfolio3.acdfad218fe61266f2d5.png",
-    "static/media/Portfolio.png": "/static/media/Portfolio.422b0962958a3381a4af.png",
     "static/media/yenpin5.png": "/static/media/yenpin5.b54f46131844043018af.png",
-    "static/media/portfolio5.png": "/static/media/portfolio5.e9904eabea2e965dde5b.png",
-    "static/media/portfolio1.png": "/static/media/portfolio1.1f54934c6f8b9f2a057c.png",
     "static/media/yenpin7.png": "/static/media/yenpin7.a348c6e53978fcf8f614.png",
     "static/media/yenflix1.png": "/static/media/yenflix1.cd5b1005e946194563a4.png",
     "static/media/yenpin4.png": "/static/media/yenpin4.cd5b1005e946194563a4.png",
     "static/media/yenflix3.png": "/static/media/yenflix3.ecc8e89d735e7ac948d6.png",
-    "static/media/portfolio4.png": "/static/media/portfolio4.6ba8254395d964819e08.png",
     "index.html": "/index.html",
-    "main.93151b14.css.map": "/static/css/main.93151b14.css.map",
-    "main.b89189bf.js.map": "/static/js/main.b89189bf.js.map"
+    "main.0313eb8b.css.map": "/static/css/main.0313eb8b.css.map",
+    "main.23a5f338.js.map": "/static/js/main.23a5f338.js.map"
   },
   "entrypoints": [
-    "static/css/main.93151b14.css",
-    "static/js/main.b89189bf.js"
+    "static/css/main.0313eb8b.css",
+    "static/js/main.23a5f338.js"
   ]
 }
