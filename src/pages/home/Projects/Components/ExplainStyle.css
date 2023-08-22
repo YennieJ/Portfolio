@@ -1,0 +1,33 @@
+.explain li {
+  margin-bottom: 5px;
+}
+.explain li:first-child {
+  margin: 8px 0;
+
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.explain li:nth-child(2)::before {
+  content: "주요 기능 : ";
+}
+.explain li:nth-child(3)::before {
+  content: "기존 문제점 : ";
+}
+.explain li:nth-child(4) {
+  margin-bottom: 20px;
+}
+.explain li:nth-child(4)::before {
+  content: "개선점 : ";
+}
+
+.explain li:last-child {
+  padding: 4px 8px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 12px;
+
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
